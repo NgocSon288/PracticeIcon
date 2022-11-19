@@ -14,14 +14,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.DesignPattern", "2.Design
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Middleware", "3.Middleware", "{FDF68BA8-59FD-4CD4-8217-811FC5F88E6B}"
+	ProjectSection(SolutionItems) = preProject
+		TODO.Middleware.md = TODO.Middleware.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.EF", "4.EF", "{AE223582-6326-4A77-935F-982BDCAAD100}"
+	ProjectSection(SolutionItems) = preProject
+		TODO.EF.md = TODO.EF.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.SQL", "5.SQL", "{B3DC504F-9B01-4276-8588-AD42151834A1}"
+	ProjectSection(SolutionItems) = preProject
+		TODO.SQL.md = TODO.SQL.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6.SOLID", "6.SOLID", "{EC3546B4-41EE-4A1F-82CD-6E957BA280AE}"
+	ProjectSection(SolutionItems) = preProject
+		TODO.SOLID.md = TODO.SOLID.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7.Model", "7.Model", "{3FE0669D-7BEE-43F0-815C-14707889E8D6}"
+	ProjectSection(SolutionItems) = preProject
+		TODO.Model.md = TODO.Model.md
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icon.Basic", "Icon.Basic\Icon.Basic.csproj", "{C8541019-4F86-47A0-8423-289C6FF1A854}"
 EndProject
