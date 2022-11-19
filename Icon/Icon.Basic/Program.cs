@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Icon.Basic._1.StaticMethodOverloading;
+using System;
 
 namespace Icon.Basic
 {
@@ -6,7 +7,8 @@ namespace Icon.Basic
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Basic!");
+            // 1. Example regarding Static method overloading
+            Person.RunExample();
         }
     }
 }
