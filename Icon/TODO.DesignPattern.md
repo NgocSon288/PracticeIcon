@@ -22,4 +22,5 @@
 	- ServiceProvider is the object contain all the Service, this object will be created when we use BuildServiceProvider() method to build ServiceCollection
 	- serviceProvider.GetService<AnotherProgram>(): use this method to force get the specific service from service colection
 + UnitTest
-	
+	- TestApplication: using database memory ensure that is not effect to another database
+	- Create BaseClassTest for other class can implement
