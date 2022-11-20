@@ -52,6 +52,7 @@ namespace Icon.Middleware
             services.ConfigAuthentication(Configuration);
 
             // Middleware 
+            services.AddScoped<GlobalExceptionMiddleware>();
             services.AddScoped<InformationMiddleware>();
         }
 
@@ -65,6 +66,7 @@ namespace Icon.Middleware
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Icon.Middleware v1"));
             }
 
+            app.UseMiddleware<GlobalExceptionMiddleware>();
             app.UseMiddleware<InformationMiddleware>();
 
             app.UseHttpsRedirection();

@@ -17,12 +17,16 @@ namespace Icon.Middleware.Middlewares
         }
 
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
-        { 
-            Console.WriteLine("Start - Custom Middleware"); 
-             
+        {
+            Console.WriteLine("InformationMiddleware: Start");
+
+            var a = 1;
+            var b = 0;
+            var c = a / b;
+
             await next(context);
 
-            Console.WriteLine("End - Custom Middleware"); 
+            Console.WriteLine("InformationMiddleware: End");
         }
     }
 }
