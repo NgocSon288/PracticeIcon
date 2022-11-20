@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Icon.DesignPattern.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,9 @@ namespace Icon.DesignPattern
 {
     public class AnotherProgram
     {
-        private readonly IProductRepo _productRepo;
+        private readonly IProductRepository _productRepo;
 
-        public AnotherProgram(IProductRepo productRepo)
+        public AnotherProgram(IProductRepository productRepo)
         {
             this._productRepo = productRepo;
         }
@@ -20,7 +21,7 @@ namespace Icon.DesignPattern
         /// </summary>
         public void Main()
         {
-            var products = _productRepo.Gets();
+            var products = _productRepo.GetAll();
 
             foreach (var item in products)
             {

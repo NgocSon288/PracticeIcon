@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Icon.DesignPattern.DataAccess.Models
 {
-    public class Product
+    public class Product : BaseModel
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public int? CategoryId { get; set; }
 

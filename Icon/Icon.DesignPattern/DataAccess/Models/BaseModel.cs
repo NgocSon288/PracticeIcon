@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Icon.DesignPattern.DataAccess.Models
 {
-    public class Category : BaseModel
+    public class BaseModel
     {
-        public string Name { get; set; }
-
-        public List<Product> Products { get; set; }
+        public int Id { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public string CreatedBy { get; set; }
     }
 }

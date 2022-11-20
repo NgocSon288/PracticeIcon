@@ -23,28 +23,5 @@ namespace Icon.DesignPattern
             var anotherProgram = serviceProvider.GetService<AnotherProgram>();
             anotherProgram.Main();
         }
-    }
-
-    // only use to demo
-
-    public interface IProductRepo
-    {
-        List<Product> Gets();
-    }
-    public class ProductRepo: IProductRepo
-    {
-        private readonly ApplicationDbContext _context;
-
-        public ProductRepo(ApplicationDbContext context)
-        {
-            _context = context;
-        }
-
-        public List<Product> Gets()
-        {
-            return _context.Products
-                   .Include(e => e.Category)
-                   .ToList();
-        }
-    }
+    } 
 }

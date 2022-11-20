@@ -1,5 +1,6 @@
 ﻿using Icon.DesignPattern.Common;
 using Icon.DesignPattern.DataAccess;
+using Icon.DesignPattern.Repository;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace Icon.DesignPattern.DependencyInjection
             
             services.AddTransient<ApplicationDbContext>(
                 options => ApplicationDbContextFactory.Init(AppSettings.DbContextSetting.ConnectionStringName));
-            services.AddTransient<IProductRepo, ProductRepo>();
+            services.AddTransient<IProductRepository, ProductRepository>();
 
             services.AddTransient<AnotherProgram>();
 
