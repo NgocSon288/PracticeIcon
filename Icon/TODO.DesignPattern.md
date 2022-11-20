@@ -6,7 +6,7 @@
 
 
 ------------------------------------------------------------------------------
-* Design 
+* Design Pattern
 + DataAccess
 	- Models
 	- Configuration instead of Annotation
