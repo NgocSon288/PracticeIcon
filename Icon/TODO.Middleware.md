@@ -18,4 +18,8 @@
 - Authorization
 	- Add role to ClaimType.Role
 - Custom Middleware
+	- Basic
+	- Create class implement from IMiddleware and InvokeAsync method
+	- Register the middleware with Services in startup
+	- Apply this middleware at config pipeline 
 - Implement Filter Middleware

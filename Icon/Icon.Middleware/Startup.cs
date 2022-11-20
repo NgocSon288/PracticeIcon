@@ -1,6 +1,7 @@
 using Icon.Middleware.Config;
 using Icon.Middleware.DataAccess;
 using Icon.Middleware.DataAccess.Entities;
+using Icon.Middleware.Middlewares;
 using Icon.Middleware.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -41,15 +42,17 @@ namespace Icon.Middleware
             // Register services
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<HttpContextAccessor>();
-            
-            
+
             services.AddControllers();
-            
+
             // Config for swagger can use TokenKey
             services.ConfigSwaggerWithAuthentication(Configuration);
 
             // Connfig for Authentication
             services.ConfigAuthentication(Configuration);
+
+            // Middleware 
+            services.AddScoped<InformationMiddleware>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,6 +64,8 @@ namespace Icon.Middleware
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Icon.Middleware v1"));
             }
+
+            app.UseMiddleware<InformationMiddleware>();
 
             app.UseHttpsRedirection();
 
