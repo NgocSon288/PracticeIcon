@@ -1,11 +1,20 @@
+using Icon.Middleware.Config;
+using Icon.Middleware.DataAccess;
+using Icon.Middleware.DataAccess.Entities;
+using Icon.Middleware.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
@@ -26,12 +35,21 @@ namespace Icon.Middleware
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Config for IdentityDbContext
+            services.ConfigIdentityDbContext(Configuration);
 
+            // Register services
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<HttpContextAccessor>();
+            
+            
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Icon.Middleware", Version = "v1" });
-            });
+            
+            // Config for swagger can use TokenKey
+            services.ConfigSwaggerWithAuthentication(Configuration);
+
+            // Connfig for Authentication
+            services.ConfigAuthentication(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +66,7 @@ namespace Icon.Middleware
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
