@@ -1,5 +1,6 @@
 ﻿using Icon.DesignPattern.Common;
 using Icon.DesignPattern.DataAccess;
+using Icon.DesignPattern.HotTest;
 using Icon.DesignPattern.Repository;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -32,6 +33,10 @@ namespace Icon.DesignPattern.DependencyInjection
             services.AddTransient<ApplicationDbContext>(
                 options => ApplicationDbContextFactory.Init(AppSettings.DbContextSetting.ConnectionStringName));
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
+
+            services.AddTransient<IProductRepositoryHotTest, ProductRepositoryHotTest>();
+            services.AddTransient<ICategoryRepositoryHotTest, CategoryRepositoryHotTest>();
 
             services.AddTransient<AnotherProgram>();
 

@@ -16,7 +16,9 @@
 		- section.GetChildren().Select(e => e.Value): we can combine between GetChildren with Select to return IEnumberable value, when each item is array of entire object such as [1, "Sos", 20]
 	- DataSeeding
 + Repository
+	- ReadRepository and CrudRepository
 + UnitOfWork
+	- SaveChange()
 + Dependency Injection
 	- Using ServiceCollection class to manage the services in the application
 	- ServiceProvider is the object contain all the Service, this object will be created when we use BuildServiceProvider() method to build ServiceCollection

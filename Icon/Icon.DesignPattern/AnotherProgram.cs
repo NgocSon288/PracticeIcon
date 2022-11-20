@@ -1,4 +1,5 @@
-﻿using Icon.DesignPattern.Repository;
+﻿using Icon.DesignPattern.HotTest;
+using Icon.DesignPattern.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,14 @@ namespace Icon.DesignPattern
 {
     public class AnotherProgram
     {
-        private readonly IProductRepository _productRepo;
+        private readonly IProductRepositoryHotTest _productRepositoryHotTest;
+        private readonly ICategoryRepositoryHotTest  _categoryRepositoryHotTest;
 
-        public AnotherProgram(IProductRepository productRepo)
+        public AnotherProgram(IProductRepositoryHotTest productRepository, 
+            ICategoryRepositoryHotTest categoryRepositoryHotTest)
         {
-            this._productRepo = productRepo;
+            _productRepositoryHotTest = productRepository;
+            _categoryRepositoryHotTest = categoryRepositoryHotTest;
         }
 
         /// <summary>
@@ -21,12 +25,11 @@ namespace Icon.DesignPattern
         /// </summary>
         public void Main()
         {
-            var products = _productRepo.GetAll();
+            // Test for ProductRepository
+            _productRepositoryHotTest.Test();
 
-            foreach (var item in products)
-            {
-                Console.WriteLine("{0, -5} | {1,-20} | {2,-20}", item.Id, item.Name, item.Category?.Name);
-            }
+            // Test for CategoryRepository
+            _categoryRepositoryHotTest.Test();
         }
     }
 }
